@@ -48,6 +48,7 @@ export const ProModal = () => {
 
     const onSubsscribe = async () => {
         try {
+            setLoading(true);
             const response = await axios.get("/api/stripe");
 
             window.location.href = (await response).data.url;
@@ -91,6 +92,7 @@ export const ProModal = () => {
                 </DialogHeader>
                 <DialogFooter>
                     <Button
+                        onClick={onSubsscribe}
                         size="lg"
                         variant="premium"
                         className="w-full"
